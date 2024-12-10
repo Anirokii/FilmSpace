@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Navigation | Hoverable Sidebar Menu</title>
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'><link rel="stylesheet" href="./sideBar.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="sidebar">
+  <div class="logo-details">
+    <i class='bx bxl-c-plus-plus icon'></i>
+    <div class="logo_name">Movie List</div>
+    <i class='bx bx-menu' id="btn"></i>
+  </div>
+  <ul class="nav-list">
+    <li>
+      <a href="#">
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">Films</span>
+      </a>
+      <span class="tooltip">Films</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-bookmark-heart'></i>
+        <span class="links_name">Favoris</span>
+      </a>
+      <span class="tooltip">Favoris</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-cog'></i>
+        <span class="links_name">Setting</span>
+      </a>
+      <span class="tooltip">Setting</span>
+    </li>
+    <li class="profile">
+      <i class='bx bx-log-out' id="log_out"></i>
+    </li>
+  </ul>
+</div>
+<!-- partial -->
+  <script  src="./sideBar.js"></script>
+
+</body>
+</html>
