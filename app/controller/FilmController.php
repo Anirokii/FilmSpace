@@ -33,7 +33,7 @@ class FilmController extends BaseController {
                 $data['rate_moyenne'],
                 $data['affichefilm']
             );
-            header('Location: index.php?controller=Film&action=index'); // Redirect after creation
+            header('Location: index.php?controller=Film&action=index');
         } else {
             $this->render('film/create');
         }

@@ -11,7 +11,7 @@ class BaseController {
     }
 
     protected function render($viewName, $data = []) {
-        $viewPath = __DIR__ . '/../view/' . $viewName . '.php';
+        $viewPath = __DIR__ . '/../../tests/view/' . $viewName . '.php';
         if (file_exists($viewPath)) {
             extract($data);
             include $viewPath;
