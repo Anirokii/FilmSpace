@@ -1,6 +1,4 @@
 <?php
-
-include_once __DIR__ . '/../../models/Person.php';
 include_once __DIR__ . '/BaseController.php';
 
 class PersonController extends BaseController {
@@ -21,6 +19,11 @@ class PersonController extends BaseController {
 
             if ($this->personModel->emailExists($email)) {
                 echo "<script>alert('Email already exists'); window.location.href='index.php';</script>";
+                return;
+            }
+
+            if ($password !== $confirm_password) {
+                echo "<script>alert('Passwords do not match. Please try again.'); window.location.href='index.php?controller=Person&action=create';</script>";
                 return;
             }
 
