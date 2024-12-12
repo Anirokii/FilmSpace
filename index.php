@@ -1,6 +1,11 @@
 <?php
 // Autoload your controllers or include necessary files
 include_once __DIR__ . '/app/controller/FilmController.php';
+include_once __DIR__ . '/app/controller/CategorieController.php';
+include_once __DIR__ . '/app/controller/ActeurController.php';
+include_once __DIR__ . '/app/controller/FavorisController.php';
+include_once __DIR__ . '/app/controller/PersonController.php';
+
 
 // Get the requested controller and action from the URL
 $controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) . 'Controller' : 'FilmController'; // Default: FilmController

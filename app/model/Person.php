@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/../../config/database.php'; 
+include_once __DIR__ . '/../../config/database.php';
 
 class Person {
     private $db;
@@ -9,7 +9,11 @@ class Person {
     }
 
     // Create a new person
-    public function create($nom, $prenom, $email, $password, $role = 'user') {
+    public function create($nom, $prenom, $email, $password, $confirm_password, $role = 'user') {
+        if ($password !== $confirm_password) {
+            return false;  // Passwords do not match
+        }
+
         $sql = "INSERT INTO Person (nom, prenom, email, password, role) VALUES (:nom, :prenom, :email, :password, :role)";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([
@@ -54,6 +58,16 @@ class Person {
         $sql = "SELECT * FROM Person";
         $stmt = $this->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Check if the email already exists in the database
+    public function emailExists($email) {
+        $sql = "SELECT COUNT(*) AS count FROM Person WHERE email = :email";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([':email' => $email]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result['count'] > 0;
     }
 }
 ?>
